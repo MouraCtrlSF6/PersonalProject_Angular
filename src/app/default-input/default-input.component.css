@@ -1,0 +1,18 @@
+.input-container {
+  margin: 5px;
+  padding: 10px 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+input {
+  border-radius: 8px;
+  border: 1px solid gray;
+  padding: 12px 10px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}

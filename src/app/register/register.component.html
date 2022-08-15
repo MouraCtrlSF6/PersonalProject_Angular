@@ -1,0 +1,46 @@
+<section class="container">
+  <div class="main">
+    <div class="title">Register</div>
+
+    <form class="register-form">
+      <app-default-input
+        type="text"
+        placeholder="Enter your user name here"
+        name="name"
+        label="User name"
+        (value)="inputHandle($event, 'name')"
+      ></app-default-input>
+
+      <app-default-input
+        type="text"
+        placeholder="Enter your CPF here"
+        name="cpf"
+        label="CPF"
+        (value)="inputHandle($event, 'cpf')"
+      ></app-default-input>
+
+      <app-default-input
+        type="password"
+        placeholder="Ex.: @Senha123"
+        name="password"
+        label="Password"
+        (value)="inputHandle($event, 'password')"
+      ></app-default-input>
+
+      <app-default-input
+        type="password"
+        placeholder="Same password as above"
+        name="confirmPassword"
+        label="Confirm your password"
+        (value)="inputHandle($event, 'confirmPassword')"
+      ></app-default-input>
+
+      <app-default-button
+        type="submit"
+        (click)="send()"
+      >
+        Enviar
+      </app-default-button>
+    </form>
+  </div>
+</section>

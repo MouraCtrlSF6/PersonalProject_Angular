@@ -1,0 +1,19 @@
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.main-button {
+  background-color: red;
+  color: white;
+  border: 1px solid #fffa ;
+  border-radius: 14px;
+
+  padding: 13px 38px;
+  font-weight: bold;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+  cursor: pointer;
+}

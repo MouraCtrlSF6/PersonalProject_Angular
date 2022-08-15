@@ -1,0 +1,38 @@
+<section class="container">
+  <div class="main">
+    <div class="title">Login</div>
+
+    <form class="login-form">
+      <app-default-input
+        type="text"
+        placeholder="Enter your user name here"
+        name="name"
+        label="User name"
+        (value)="inputHandle($event, 'name')"
+      ></app-default-input>
+
+      <app-default-input
+        type="password"
+        placeholder="Enter your password here"
+        name="name"
+        label="Password"
+        (value)="inputHandle($event, 'password')"
+      ></app-default-input>
+
+      <app-default-button
+        type="submit"
+        (click)="send()"
+      >
+        Enviar
+      </app-default-button>
+    </form>
+
+
+    <div class="alternatives">
+      <a class="forgot-password" routerLink="/forgot-password">Forgot Password</a>
+      or
+      <a class="register" routerLink="/register">Register</a>
+    </div>
+
+  </div>
+</section>
