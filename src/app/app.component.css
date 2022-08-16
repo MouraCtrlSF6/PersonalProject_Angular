@@ -1,0 +1,24 @@
+.app-container {
+  --dark-blue: #002366;
+  --dark: #2f2f30;
+  --red: #c30010;
+  --dark-purple: #371c4b;
+  --soft-white: #c5c6d0;
+}
+
+.app-container {
+  background-color: var(--dark-purple);
+  color: var(--soft-white);
+
+  min-height: 100%;
+  padding: 1vh;
+}
+
+:host {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

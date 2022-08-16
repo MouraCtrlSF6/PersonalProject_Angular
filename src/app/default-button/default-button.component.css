@@ -6,9 +6,9 @@
 }
 
 .main-button {
-  background-color: red;
+  background-color: var(--dark-blue);
   color: white;
-  border: 1px solid #fffa ;
+  border: 1px solid #fffa;
   border-radius: 14px;
 
   padding: 13px 38px;

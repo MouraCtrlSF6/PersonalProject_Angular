@@ -1,0 +1,7 @@
+<div class="container">
+  <div class="component-wrapper">
+    <div class="header" *ngFor="let header of headers">
+      <a class="header-option" routerLink={{header.route}} routerLinkActive="active">{{header.name}}</a>
+    </div>
+  </div>
+</div>

@@ -19,30 +19,21 @@
 }
 
 .login-form {
-  border: 2px solid black;
+  border: 2px solid var(--soft-white);
   border-radius: 10px;
 
   padding: 15px 10px;
   margin-bottom: 10px;
 }
 
-/* .alternatives {
-  max-width: 400px;
+.alternatives {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 2px 7px;
 }
 
-.alternatives > .register {
-  float: right;
-}
-
-.alternatives > .forgot-password {
-  float: left;
-} */
-
-.alternatives {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 10px
+a {
+  color: var(--soft-white)
 }

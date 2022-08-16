@@ -8,8 +8,9 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { DefaultButtonComponent } from './default-button/default-button.component';
 import { DefaultInputComponent } from './default-input/default-input.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { RegisterComponent } from './register/register.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -17,8 +18,9 @@ import { RegisterComponent } from './register/register.component';
     HomeComponent,
     DefaultButtonComponent,
     DefaultInputComponent,
-    ForgotPasswordComponent,
-    RegisterComponent
+    RegisterComponent,
+    NavbarComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
