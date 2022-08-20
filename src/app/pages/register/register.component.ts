@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from '../services/user.service';
+import { UserDto } from 'src/app/interfaces/userDto';
+import { UserService } from '../../services/user/user.service';
 
 @Component({
   selector: 'app-register',
@@ -13,6 +14,7 @@ export class RegisterComponent implements OnInit {
     password: "",
     confirmPassword: "",
     cpf: "",
+    roles: ""
   };
 
   private errors: any[] = [];
@@ -24,40 +26,56 @@ export class RegisterComponent implements OnInit {
     return;
   }
 
-  public send(): void {
-    if(!this.validateFields()) {
-      this.displayErrors();
-      this.clearErrors();
-      return;
-    }
-    if(!this.validatePassword()) {
-      this.displayErrors();
-      this.clearErrors();
-      return;
-    }
+  private handleRequest(payload: any): Promise<UserDto> {
+    return new Promise((resolve, reject) => {
+      this.service.register(payload).subscribe((response: any) => resolve(response),
+      (err:any) => reject(err))
+    });
+  }
 
-    const payload = {
-      name: this.form.name,
-      password: this.form.password,
-      cpf: this.form.cpf
-    }
+  public async send(): Promise<any> {
+    try {
+      const validations = [
+        () => this.validateFields(),
+        () => this.validatePassword(),
+      ];
+      const errors = validations.find(validation => !validation())
 
-    this.service.register(payload).subscribe(
-    (response) => {
-      console.log("Success! Response: ", response?.data || response);
-      this.router.navigateByUrl("login");
-    },
-    (error) => {
-      console.error("Wops! An error has occurred: ", error?.message);
-    })
+      if(errors) {
+        this.displayErrors();
+        this.clearErrors();
+        return;
+      }
+      const payload = JSON.parse(JSON.stringify(this.form));
+      delete payload.confirmPassword;
+
+      payload.roles = payload.roles
+        .toUpperCase()
+        .split(",")
+        .map((role: string) => {
+          role = role.trim();
+          return role.startsWith("ROLE_")
+            ? role
+            : "ROLE_" + role;
+        });
+
+      console.log("Roles: ", payload.roles);
+
+      const response: UserDto = await this.handleRequest(payload);
+      console.log("User successfully registered! ", response);
+    } catch(err: any) {
+      console.error(err.message);
+    }
   }
 
   private displayErrors(): void {
     this.errors.forEach((error: any) => console.error(error.description));
+    return;
   }
 
   private clearErrors(): void {
     this.errors = [];
+    return;
   }
 
   private validatePassword(): boolean {
@@ -105,6 +123,4 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-
-
 }

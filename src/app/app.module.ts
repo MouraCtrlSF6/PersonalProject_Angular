@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { DefaultButtonComponent } from './default-button/default-button.component';
-import { DefaultInputComponent } from './default-input/default-input.component';
-import { RegisterComponent } from './register/register.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { UserListComponent } from './user-list/user-list.component';
+import { HomeComponent } from './pages/home/home.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { UserListComponent } from './pages/user-list/user-list.component';
+import { DefaultButtonComponent } from './components/buttons/default-button/default-button.component';
+import { DefaultInputComponent } from './components/inputs/default-input/default-input.component';
+import { InterceptorsService } from './services/http/interceptors.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { UserListComponent } from './user-list/user-list.component';
     DefaultInputComponent,
     RegisterComponent,
     NavbarComponent,
-    UserListComponent
+    UserListComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +29,9 @@ import { UserListComponent } from './user-list/user-list.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorsService, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
