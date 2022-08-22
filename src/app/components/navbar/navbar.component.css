@@ -6,17 +6,16 @@
 }
 
 .component-wrapper {
-  border-radius: 15px;
-  background-color: var(--red);
-  padding: 10px;
-  color: white;
   display: flex;
   justify-content: space-between;
-  font-size: 18px;
-  font-weight: bold;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   padding: 10px 2.5%;
   width: 85%;
+  border-radius: 15px;
+  background-color: var(--red);
+  font-size: 22px;
+  font-weight: bold;
+  font-family: var(--app-main-font);
+  color: var(--soft-white);
 }
 
 a {

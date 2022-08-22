@@ -1,16 +1,12 @@
-<app-navbar [omit]="['/register']">
-</app-navbar>
-
 <section class="container">
   <div class="main">
     <div class="title">Login</div>
-
     <form class="login-form">
       <app-default-input
         type="text"
         placeholder="Enter your user name here"
         name="name"
-        label="User name"
+        label="Name"
         (value)="inputHandle($event, 'name')"
       ></app-default-input>
 
@@ -24,17 +20,22 @@
 
       <app-default-button
         type="submit"
-        (click)="send()"
+        (click)="validate()"
       >
         Enviar
       </app-default-button>
     </form>
 
-
     <div class="alternatives">
-      or
-      <a class="register" routerLink="/register">Register</a>
+      or <a class="register" routerLink="/register">Register</a>
     </div>
-
+    <app-error    
+      [text]=errorMessage
+      [hide]=!errors.length
+    ></app-error>
+    <app-success    
+      [text]=successMessage
+      [hide]=!displaySuccess
+    ></app-success>
   </div>
 </section>

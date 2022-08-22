@@ -11,7 +11,7 @@
 
 .title {
   font-size: 22px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: var(--app-main-font);;
   font-weight: bold;
   margin-bottom: 10px;
   text-align: center;

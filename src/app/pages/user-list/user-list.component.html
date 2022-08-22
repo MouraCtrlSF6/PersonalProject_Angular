@@ -1,12 +1,41 @@
-<app-navbar></app-navbar>
+<app-navbar
+  [omit]="[
+    '/login', 
+    '/register'
+  ]"
+  [additionalHeaders]="[
+    {
+      route: '/logout',
+      name: 'Logout'
+    }
+  ]"
+></app-navbar>
 
 <section class="container">
+  <h2>User List</h2>
   <div class="user-list">
     <div class="user-item" *ngFor="let user of users">
-      <label for="name">User Name </label>
-      <div name="name" class="name">{{user.name}}</div>
-      <label for="name">Register Date </label>
-      <div name="name" class="name">{{user.registerDate}}</div>
+      <app-default-field
+        [label]="user.name"
+        [values]="[user.roles, user.registerDate, user.lastAccessAt]"
+      ></app-default-field>
     </div>
+  </div>
+  <div class="footer-wrapper">
+    <footer>
+      <div class="buttons-wrapper">
+        <app-default-button
+          type="button"
+          (click)="pageResults(page-1, size, sort)"
+        >Previous</app-default-button>
+        <app-default-button
+          type="button"
+          (click)="pageResults(page+1, size, sort)"
+        >Next</app-default-button>
+      </div>
+      <div class="page-infos">
+        <p>Page {{page + 1}} of {{listInfos.totalPages}}</p>
+      </div>
+    </footer>
   </div>
 </section>

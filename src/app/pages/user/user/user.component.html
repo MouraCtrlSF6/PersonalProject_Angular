@@ -1,0 +1,28 @@
+<app-navbar
+  [omit]="ommitHeaders"
+  [additionalHeaders]="[{
+    route: '/logout',
+    name: 'Logout'
+  }]"
+></app-navbar>
+
+<div class="container">
+  <div class="user-infos">
+    <app-default-field
+      label="User name"
+      [values]="[infos.name]"
+    ></app-default-field>
+    <app-default-field
+      label="CPF"
+      [values]="[infos.cpf]"
+    ></app-default-field>
+    <app-default-field
+      label="Register date"
+      [values]="[infos.registerDate]"
+    ></app-default-field>
+    <app-default-field
+      label="Roles"
+      [values]="infos.roles"
+    ></app-default-field>
+  </div>
+</div>

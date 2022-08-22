@@ -1,0 +1,47 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5%;
+}
+
+.field-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 100%;
+  border: 1px solid var(--soft-white);
+  border-radius: 5px;
+}
+
+.separator {
+  margin-bottom: 10px;
+  height: 0.5px;
+  background-color: var(--soft-white);
+  border-collapse: collapse;
+}
+
+.label-wrapper {
+  padding: 10px;
+  background-color: var(--soft-purple);
+  border-radius: 5px;
+}
+
+.field-label {
+  font-weight: bold;
+  font-size: 20px;
+  font-family: var(--app-main-font);
+}
+
+.field-text {
+  padding: 10px;
+  font-family: var(--app-main-font);
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    margin-bottom: 3%;
+    margin-top: 3%;
+  }
+}

@@ -15,13 +15,17 @@ export class NavbarComponent implements OnInit {
       route: "/login",
       name: "Back to Login"
     },
-    {
-      route: "/register",
-      name: "Create an Account"
+    { 
+      route: '/user',
+      name: 'Home'
     },
     {
       route: "/user-list",
       name: "User List"
+    },
+    { 
+      route: '/annotation', 
+      name: 'Annotations'
     }
   ];
 

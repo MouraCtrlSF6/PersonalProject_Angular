@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -14,12 +14,17 @@ export class UserService {
     return this.httpClient.post(UserService.URL, JSON.stringify(payload));
   }
 
-  public list(params: string = "") {
-    return this.httpClient.get(UserService.URL);
+  public list(params: any = {}) {
+    const stringParams: string = 
+      `page=${params.page || '0'}&size=${params.size || '4'}&sort=${params.sort || 'name'}`
+
+    const url = `${UserService.URL}?${stringParams}`
+      
+    return this.httpClient.get(url);
   }
 
   public find(id: number) {
-    const url = `UserService.URL/${id}`;
+    const url = `${UserService.URL}/${id}`;
     return this.httpClient.get(url);
   }
 }

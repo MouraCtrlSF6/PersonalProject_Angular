@@ -3,16 +3,26 @@
   padding: 10px 5px;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 380px;
 }
 
 label {
   margin-bottom: 5px;
+  font-family: var(--app-main-font);
+  font-size: 18px;
 }
 
 input {
   border-radius: 8px;
   border: 1px solid gray;
   padding: 12px 10px;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: var(--app-main-font);
+  font-size: 18px;
+}
+
+@media only screen and (max-width: 400px) {
+  .input-container {
+    max-width: 94%;
+  }
 }

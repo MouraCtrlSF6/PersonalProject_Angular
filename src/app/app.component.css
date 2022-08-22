@@ -1,9 +1,16 @@
 .app-container {
+  /* colors */
   --dark-blue: #002366;
   --dark: #2f2f30;
   --red: #c30010;
   --dark-purple: #371c4b;
+  --soft-purple: #371f76;
   --soft-white: #c5c6d0;
+  --warning: #dc9900;
+  --success: #267d39;
+
+  /* fonts */
+  --app-main-font: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .app-container {

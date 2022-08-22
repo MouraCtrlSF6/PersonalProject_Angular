@@ -1,4 +1,10 @@
-<app-navbar></app-navbar>
+<app-navbar
+  [omit]="[
+    '/user-list',
+    '/user', 
+    '/annotation'
+  ]"
+></app-navbar>
 
 <section class="container">
   <div class="main">
@@ -19,14 +25,6 @@
         name="cpf"
         label="CPF"
         (value)="inputHandle($event, 'cpf')"
-      ></app-default-input>
-
-      <app-default-input
-        type="text"
-        placeholder="Enter your roles here"
-        name="roles"
-        label="ROLES"
-        (value)="inputHandle($event, 'roles')"
       ></app-default-input>
 
       <app-default-input
@@ -52,5 +50,14 @@
         Send
       </app-default-button>
     </form>
+
+    <app-error    
+      [text]=errorMessage
+      [hide]=!errors.length
+    ></app-error>
+    <app-success    
+      [text]=successMessage
+      [hide]=!displaySuccess
+    ></app-success>
   </div>
 </section>

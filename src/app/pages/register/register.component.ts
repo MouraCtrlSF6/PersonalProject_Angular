@@ -13,15 +13,18 @@ export class RegisterComponent implements OnInit {
     name: "",
     password: "",
     confirmPassword: "",
-    cpf: "",
-    roles: ""
+    cpf: ""
   };
 
-  private errors: any[] = [];
+  public errors: any[] = [];
+  public displaySuccess: boolean = false;
+  public errorMessage: string = "";
+  public successMessage: string = "";
 
   constructor(private service: UserService, private router: Router) {}
 
   public inputHandle($event: string, attribute: string): void {
+    this.togglePopups();
     this.form[attribute] = $event;
     return;
   }
@@ -35,46 +38,49 @@ export class RegisterComponent implements OnInit {
 
   public async send(): Promise<any> {
     try {
-      const validations = [
-        () => this.validateFields(),
-        () => this.validatePassword(),
-      ];
-      const errors = validations.find(validation => !validation())
-
-      if(errors) {
-        this.displayErrors();
-        this.clearErrors();
+      if(!this.validateFields()) {
+        const message = `Fields ${this.errors.join(", ")} can not be empty.`
+        this.displayErrors(message);
         return;
       }
+
+      if(!this.validatePassword()) {
+        const message = this.errors.join(' AND ');
+        this.displayErrors(message);
+        return;
+      }
+
       const payload = JSON.parse(JSON.stringify(this.form));
       delete payload.confirmPassword;
 
-      payload.roles = payload.roles
-        .toUpperCase()
-        .split(",")
-        .map((role: string) => {
-          role = role.trim();
-          return role.startsWith("ROLE_")
-            ? role
-            : "ROLE_" + role;
-        });
+      await this.handleRequest(payload);
 
-      console.log("Roles: ", payload.roles);
+      this.successMessage = `User ${payload.name} successfully registered.`;
+      this.displaySuccess = true;
 
-      const response: UserDto = await this.handleRequest(payload);
-      console.log("User successfully registered! ", response);
+      return;
     } catch(err: any) {
+      this.errors.push(true);
+      this.errorMessage = "CPF já existente";
       console.error(err.message);
     }
   }
 
-  private displayErrors(): void {
-    this.errors.forEach((error: any) => console.error(error.description));
+  private displayErrors(message: string): void {
+    this.errorMessage = message;
     return;
   }
 
-  private clearErrors(): void {
+  private togglePopups(): void {
     this.errors = [];
+    this.displaySuccess = false;
+    return;
+  }
+
+  private clearFields() {
+    Object.keys(this.form).forEach((key: any) => {
+      this.form[key] = "";
+    });
     return;
   }
 
@@ -99,10 +105,7 @@ export class RegisterComponent implements OnInit {
     const errors = validations.filter(validation => !validation.exec());
     this.errors = [
       ...this.errors,
-      ...errors.map(error => ({
-        name: error.name,
-        description: error.description
-      }))
+      ...errors.map(error => error.description)
     ];
 
     return !this.errors.length;
@@ -111,10 +114,7 @@ export class RegisterComponent implements OnInit {
   private validateFields(): boolean {
     return Object.keys(this.form).reduce((group, item) => {
       if(!this.form[item].length) {
-        this.errors.push({
-          name: "not null",
-          description: `Field ${item} must not be empty.`
-        })
+        this.errors.push(item)
         group = false;
       }
 
@@ -123,4 +123,4 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-}
+} 

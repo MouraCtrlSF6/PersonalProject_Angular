@@ -1,28 +1,35 @@
-.container {
+h2 {
+  margin-top: 1.25%;
+  text-align: center;
+  font-family: var(--app-main-font);
+}
+
+.footer-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  width: 100%;
 }
 
-.user-list {
-  border: 2px solid var(--soft-white);
-  border-radius: 10px;
-  padding: 15px 10px;
-  margin-bottom: 10px;
-}
-
-.user-item {
-  margin-left: 5px;
-  margin-right: 5px;
-  padding: 10px 30px;
+footer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  width: 80%;
 }
 
-label {
-  margin-bottom: 5px;
-  margin-top: 5px;
-  font-weight: bold;
+.buttons-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2.5%; 
+  padding: 10px;
+  width: 58.75%;
 }
 
+.page-infos {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 41.25%;
+}

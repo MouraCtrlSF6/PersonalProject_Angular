@@ -13,7 +13,7 @@
 
   padding: 13px 38px;
   font-weight: bold;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
+  font-family: var(--app-main-font);
+  font-size: 18px;
   cursor: pointer;
 }

@@ -8,8 +8,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 export class DefaultButtonComponent implements OnInit {
   @Input() type: string = "";
-
   @Output() onClick = new EventEmitter<void>();
+  
   constructor() { }
 
   ngOnInit(): void {}

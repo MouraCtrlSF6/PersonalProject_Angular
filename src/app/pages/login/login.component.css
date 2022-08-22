@@ -2,16 +2,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 75vh;
 }
 
 .main {
   margin: 10px;
+  width: 100%;
   max-width: 400px;
 }
 
 .title {
-  font-size: 22px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 26px;
+  font-family: var(--app-main-font);
   font-weight: bold;
   margin-bottom: 10px;
   text-align: center;
@@ -22,6 +24,7 @@
   border-radius: 10px;
   padding: 15px 10px;
   margin-bottom: 10px;
+  width: 100%;
 }
 
 .alternatives {
@@ -30,8 +33,16 @@
   justify-content: center;
   align-items: center;
   padding: 2px 7px;
+  font-size: 18px;
+  font-family: var(--app-main-font);
 }
 
 a {
   color: var(--soft-white)
+}
+
+@media only screen and (max-width: 400px) {
+  .container {
+    max-width: 93.5%
+  }
 }
