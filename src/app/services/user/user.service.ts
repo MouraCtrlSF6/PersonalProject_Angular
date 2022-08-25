@@ -14,16 +14,16 @@ export class UserService {
     return this.httpClient.post(UserService.URL, JSON.stringify(payload));
   }
 
-  public list(params: any = {}) {
-    const stringParams: string = 
+  public list(params: any = {}): Observable<any> {
+    const stringParams: string =
       `page=${params.page || '0'}&size=${params.size || '4'}&sort=${params.sort || 'name'}`
 
     const url = `${UserService.URL}?${stringParams}`
-      
+
     return this.httpClient.get(url);
   }
 
-  public find(id: number) {
+  public find(id: number): Observable<any> {
     const url = `${UserService.URL}/${id}`;
     return this.httpClient.get(url);
   }
