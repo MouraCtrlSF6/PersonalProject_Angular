@@ -18,6 +18,7 @@ import { UserComponent } from './pages/user/user/user.component';
 import { LogoutComponent } from './pages/logout/logout.component';
 import { AnnotationComponent } from './pages/annotation/annotation.component';
 import { DefaultFieldComponent } from './components/fields/default-field/default-field.component';
+import { InputTextareaComponent } from './components/inputs/input-textarea/input-textarea.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { DefaultFieldComponent } from './components/fields/default-field/default
     LogoutComponent,
     AnnotationComponent,
     DefaultFieldComponent,
+    InputTextareaComponent,
   ],
   imports: [
     BrowserModule,

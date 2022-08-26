@@ -1,5 +1,5 @@
-export interface Pageable {
-  content: any[],
+export interface Pageable<dto> {
+  content: dto[],
   empty: boolean,
   first: boolean,
   last: boolean,

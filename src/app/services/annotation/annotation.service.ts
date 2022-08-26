@@ -16,7 +16,7 @@ export class AnnotationService {
     const defaultValues: any = {
       page: 0,
       size: 4,
-      sort: 'user_id',
+      sort: 'userAnnotationId',
       user_id: null,
       user_name: null
     }

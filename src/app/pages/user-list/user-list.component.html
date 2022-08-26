@@ -1,6 +1,6 @@
 <app-navbar
   [omit]="[
-    '/login', 
+    '/login',
     '/register'
   ]"
   [additionalHeaders]="[
@@ -34,7 +34,7 @@
         >Next</app-default-button>
       </div>
       <div class="page-infos">
-        <p>Page {{page + 1}} of {{listInfos.totalPages}}</p>
+        <p>Page {{page + 1}} of {{listInfos.totalPages || '1'}}</p>
       </div>
     </footer>
   </div>

@@ -3,6 +3,7 @@ import { Pageable } from 'src/app/interfaces/pageable';
 import { formatDate } from '@angular/common';
 import { UserService } from '../../services/user/user.service';
 import { UserDetailsDto } from 'src/app/interfaces/userDetailsDto';
+import { UserDto } from 'src/app/interfaces/userDto';
 
 @Component({
   selector: 'app-user-list',
@@ -13,7 +14,7 @@ export class UserListComponent implements OnInit {
   public users: any[] = [];
 
   public page: number = 0;
-  public size: number = 4;
+  public size: number = 3;
   public sort: string = "name";
 
   public listInfos: any = {}
@@ -59,7 +60,7 @@ export class UserListComponent implements OnInit {
 
       [this.page, this.size, this.sort] = [page, size, sort];
 
-      const response: Pageable = await this.handleRequest("list", { page, size, sort });
+      const response: Pageable<UserDto> = await this.handleRequest("list", { page, size, sort });
 
       this.listInfos = {
         totalPages: response.totalPages,

@@ -7,6 +7,63 @@
 ></app-navbar>
 
 <div class="container">
-  <p> Annotation </p>
+  <div class="register-annotation">
+    <div class="register-textarea">
+      <app-input-textarea
+        class="textarea"
+        label="Create new annotation"
+        placeholder="Type here"
+        (value)="inputHandle($event, 'content')"
+      ></app-input-textarea>
+    </div>
+    <app-default-button
+      (onClick)="createAnnotation()"
+    >Enviar</app-default-button>
+  </div>
+
+  <div class="list-annotations">
+    <div class="annotations-item" *ngFor="let annotation of annotations">
+      <app-default-field
+        [label]="annotation.annotationId.toString()"
+        [values]="[annotation.content, annotation.createdAt, annotation.updatedAt]"
+      ></app-default-field>
+    </div>
+  </div>
+
+
+  <div class="footer-wrapper">
+    <footer>
+      <div class="buttons-wrapper">
+        <app-default-button
+          type="button"
+          (click)="pageResults(
+            pagination.page-1,
+            pagination.size,
+            pagination.sort
+          )"
+        >Previous</app-default-button>
+        <app-default-button
+          type="button"
+          (click)="pageResults(
+            pagination.page+1,
+            pagination.size,
+            pagination.sort
+          )"
+        >Next</app-default-button>
+      </div>
+      <div class="page-infos">
+        <p>Page {{pagination.page + 1}} of {{listInfos.totalPages || '1'}}</p>
+      </div>
+    </footer>
+  </div>
+
+  <app-success
+    [text]="popups.success.text"
+    [hide]="!popups.success.display"
+  ></app-success>
+  <app-error
+  [text]="popups.error.text"
+  [hide]="!popups.error.display"
+></app-error>
 </div>
 

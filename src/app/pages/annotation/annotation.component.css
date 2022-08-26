@@ -1,0 +1,94 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-annotation {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-textarea {
+  width: 100%;
+}
+
+.textarea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-annotations {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.75%;
+  width: 40%;
+  margin-top: 4%;
+  margin-bottom: 4%;
+}
+
+.footer-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+}
+
+.buttons-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2.5%;
+  padding: 10px;
+  width: 58.75%;
+  /* width: 100%; */
+}
+
+.page-infos {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 41.25%;
+}
+
+@media only screen and (max-width: 1368px) {
+  .list-annotations {
+    width: 55%;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .buttons-wrapper {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .list-annotations {
+    width: fit-content;
+  }
+  .page-infos {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  footer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

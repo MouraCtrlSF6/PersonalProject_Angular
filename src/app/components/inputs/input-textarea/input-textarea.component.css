@@ -1,0 +1,30 @@
+.textarea-container {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  padding: 10px 5px;
+  width: 93%;
+  max-width: 400px;
+}
+
+label {
+  margin-bottom: 5px;
+  font-family: var(--app-main-font);
+  font-size: 18px;
+}
+
+textarea {
+  border-radius: 8px;
+  border: 1px solid gray;
+  padding: 12px 10px;
+  font-family: var(--app-main-font);
+  font-size: 18px;
+  background-color: var(--soft-white);
+  color: var(--dark);
+}
+
+@media only screen and (max-width: 400px) {
+  .textarea-container {
+    max-width: 94%;
+  }
+}
