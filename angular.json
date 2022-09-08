@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ProjetoPessoal": {
+    "GerenciamentoDeUsuarios": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ProjetoPessoal:build:production"
+              "browserTarget": "GerenciamentoDeUsuarios:build:production"
             },
             "development": {
-              "browserTarget": "ProjetoPessoal:build:development"
+              "browserTarget": "GerenciamentoDeUsuarios:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ProjetoPessoal:build"
+            "browserTarget": "GerenciamentoDeUsuarios:build"
           }
         },
         "test": {
